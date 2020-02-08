@@ -1,4 +1,5 @@
 @import '~styles/css/color';
+@import '~styles/css/variable';
 
 .wrapper-filter {
    background-color: $color-royalBlue;
@@ -8,4 +9,11 @@
    display: grid;
    grid-template-columns: 1fr 1fr;
    grid-gap: 1.7em;
+}
+
+@media (max-width: $mobile) {
+  div.wrapper-list-product {
+     grid-template-columns: 1fr;
+     padding: 1.5em 0;
+  }
 }

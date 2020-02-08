@@ -50,3 +50,14 @@
 .padding-r-6 {
    padding-right: 0.7em;
 }
+
+@media (max-width: $mobile) {
+   .container {
+      padding-left: 1.5em;
+      padding-right: 1.5em;
+   }
+
+   .col-6 {
+      width: 100%;
+   }
+ }
