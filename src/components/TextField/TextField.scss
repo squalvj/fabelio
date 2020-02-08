@@ -1,0 +1,17 @@
+@import '~styles/css/color';
+
+.wrapper-text-field {
+  width: 100%;
+  input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $color-white;
+    padding: 1em 0.4em;
+    font-size: 1.3em;
+    background-color: rgba(0,0,0,0);
+    color: $color-white;
+  }
+  input::placeholder {
+    color: $color-white;
+  }
+}
