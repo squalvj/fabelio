@@ -123,9 +123,9 @@ export default class Home extends Component {
    }
    
    componentDidMount() {
-   this.setState({
-      products: data.products
-   })  
+      this.setState({
+         products: data.products
+      })  
    }
 
    handleChange = e => this.setState({
@@ -153,14 +153,14 @@ export default class Home extends Component {
       return (
          <div className="container">
             <div className="wrapper-filter padding-15">
-               <div className="margin-b-15 col-6">
+               <div className="margin-b-15 col-6 padding-r-6">
                   <TextField dataKey="searchValue" placeholder="Search Furniture" onChange={this.handleChange} value={searchValue} />
                </div>
                <div className="flex align-center">
-                  <div className="col-6 flex align-center">
+                  <div className="col-6 flex align-center padding-r-6">
                      <MultiSelect placeholder={'Furniture Style'} data={furnitureData} handleClick={this.handleClickMultiSelect} />
                   </div>
-                  <div className="col-6 flex align-center padding-l-15">
+                  <div className="col-6 flex align-center padding-l-6">
                      <Dropdown dataKey="periodSelected" option={deliverySelections} onChange={this.handleChange} placeholder="Search..." value={periodSelected} />
                   </div>
                </div>
