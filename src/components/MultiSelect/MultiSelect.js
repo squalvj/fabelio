@@ -13,20 +13,23 @@ export default function MultiSelect({data, handleClick, placeholder}) {
     } 
     setVisible(false)
   }
+
+  const selectedItem = (data || []).filter(e => e.selected);
+  const thePlaceholder = selectedItem.length > 0 ? selectedItem.map(e => e.label).join(', ') : placeholder
   
   return (
     <div className="wrapper-generic-multiSelect">
       <div className="wrapper-multiSelect-placeholder">
-        <input ref={ref => theInput = ref} value={placeholder} onBlur={handleBlur} onFocus={() => setVisible(true)}/>
+        <input readOnly ref={ref => theInput = ref} value={thePlaceholder} onBlur={handleBlur} onFocus={() => setVisible(true)}/>
       </div>
       {
         visible &&
         <div onMouseLeave={() => setDontBlur(false)} onMouseEnter={() => setDontBlur(true)} className="flex f-column wrapper-content-multiselect">
           {
             (data || []).map(e => (
-              <label>
+              <label key={e.key}>
                 {e.label}
-                <input type="checkbox" checked={e.selected} onClick={() => handleClick(e.key)}/>
+                <input type="checkbox" checked={e.selected} onChange={() => handleClick(e.key)}/>
               </label>
             ))
           }

@@ -15,7 +15,8 @@
    }
  }
  .wrapper-content-multiselect {
-   max-height: 300px;
+   max-height: 200px;
+   overflow: auto;
    width: 100%;
    box-shadow: 0.1em 0.1em 0.1em 0.1em rgba($color-black, .2);
    position: absolute;

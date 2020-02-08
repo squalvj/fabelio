@@ -37,7 +37,8 @@ export default class Home extends Component {
       super(props);
       this.state = {
          searchValue: '',
-         periodSelected: ''
+         periodSelected: '',
+         furnitureData: [...multiSelectData]
       };
    }
 
@@ -45,12 +46,14 @@ export default class Home extends Component {
       [e.target.dataset.key]: e.target.value
    })
 
-   handleClickMultiSelect = e => {
-      console.log({e})
+   handleClickMultiSelect = furnitureKey => {
+      const { furnitureData } = this.state;
+      const toggledData = furnitureData.map(e => ({...e, selected: furnitureKey === e.key ? !e.selected : e.selected }))
+      this.setState({ furnitureData: toggledData });
    }
 
    render() {
-      const { searchValue, periodSelected } = this.state;
+      const { searchValue, periodSelected, furnitureData } = this.state;
       return (
          <div className="container">
             <div className="wrapper-filter padding-15">
@@ -59,7 +62,7 @@ export default class Home extends Component {
                </div>
                <div className="flex align-center">
                   <div className="col-6 flex align-center">
-                     <MultiSelect placeholder={'Furniture Style'} data={multiSelectData} handleClick={this.handleClickMultiSelect} />
+                     <MultiSelect placeholder={'Furniture Style'} data={furnitureData} handleClick={this.handleClickMultiSelect} />
                   </div>
                   <div className="col-6 flex align-center padding-l-15">
                      <Dropdown dataKey="periodSelected" option={deliverySelections} onChange={this.handleChange} placeholder="Search..." value={periodSelected} />
