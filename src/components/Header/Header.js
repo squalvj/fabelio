@@ -4,7 +4,7 @@ export default class Header extends Component {
    render() {
       return (
          <div id="header">
-            <div className="flex header-wrapper">
+            <div className="flex header-wrapper f-column">
                FABELIO TEST
                <img alt="cool cat" className="header-pic" src={require('styles/img/nyan.gif')} />
             </div>
