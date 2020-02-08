@@ -1,4 +1,5 @@
 import React from 'react'
+import { priceFormat } from 'utils/index';
 import './ProductCard.scss';
 export default function ProductCard({productName, productPrice, productDesc, productStyles, productDelivery}) {
   return (
@@ -8,7 +9,7 @@ export default function ProductCard({productName, productPrice, productDesc, pro
           <h1>{productName}</h1>
         </div>
         <div className="wrapper-product-price">
-          <h2>{productPrice}</h2>
+          <h2>Rp {priceFormat(productPrice)}</h2>
         </div>
       </div>
 
@@ -20,7 +21,7 @@ export default function ProductCard({productName, productPrice, productDesc, pro
           }
         </span>
         <span className="product-delivery">
-          {productDelivery}
+          {productDelivery} Days
         </span>
       </div>
     </div>

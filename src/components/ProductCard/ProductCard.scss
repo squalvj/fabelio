@@ -28,11 +28,13 @@
   .product-styles {
     margin-bottom: 0.5em;
     font-size: 1.2em;
+    color: $color-royalBlue;
   }
 
   .product-delivery {
     font-size: 1.2em;
     color: $color-royalBlue;
     text-align: right;
+    font-weight: bold;
   }
 }

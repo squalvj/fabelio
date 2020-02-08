@@ -1,9 +1,3 @@
-export function makeActionCreator(type, ...argNames) {
-   return function(...args) {
-     const action = { type }
-     argNames.forEach((arg, index) => {
-       action[argNames[index]] = args[index]
-     })
-     return action
-   }
+export function priceFormat(num = '') {
+  return num.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")
 }
