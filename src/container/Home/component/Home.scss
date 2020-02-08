@@ -3,3 +3,9 @@
 .wrapper-filter {
    background-color: $color-royalBlue;
 }
+
+.wrapper-list-product {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-gap: 0.8em;
+}

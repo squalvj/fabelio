@@ -1,0 +1,38 @@
+@import '~styles/css/color';
+
+.wrapper-product-card {
+  width: 100%;
+  box-shadow: 0px 4px 6px -1px rgba(130, 130, 130, 0.68);
+  border-radius: 0.4em;
+  p {
+    margin-top: 0.8em;
+    font-size: 1.2em;
+    margin-bottom: 0.6em;
+  }
+}
+
+.wrapper-product-name {
+  h1 {
+   margin: 0; 
+  }
+}
+
+.wrapper-product-price {
+  h2 {
+    color: $color-orange;
+    margin: 0;
+  }
+}
+
+.wrapper-product-description {
+  .product-styles {
+    margin-bottom: 0.5em;
+    font-size: 1.2em;
+  }
+
+  .product-delivery {
+    font-size: 1.2em;
+    color: $color-royalBlue;
+    text-align: right;
+  }
+}
