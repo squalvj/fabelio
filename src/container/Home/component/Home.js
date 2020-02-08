@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import TextField from 'components/TextField';
-import Dropdown from 'components/Dropdown';
 import ProductCard from 'components/ProductCard';
 import MultiSelect from 'components/MultiSelect';
 import { getProducts, getProductsStyles } from 'module/Products';
@@ -9,16 +8,24 @@ import './Home.scss'
 
 const deliverySelections = [
    {
-      value: '1w',
-      label: '1 Week'
+      key: 7,
+      label: '1 Week',
+      selected: false
    },
    {
-      value: '2w',
-      label: '2 Week'
+      key: 14,
+      label: '2 Week',
+      selected: false
    },
    {
-      value: '3w',
-      label: '3 Week'
+      key: 30,
+      label: '1 Month',
+      selected: false
+   },
+   {
+      key: 45,
+      label: 'More',
+      selected: false
    },
 ]
 
@@ -27,7 +34,7 @@ export default class Home extends Component {
       super(props);
       this.state = {
          searchValue: '',
-         periodSelected: '',
+         periodsFilter: [...deliverySelections],
          furnitureStyles: [],
          products: []
       };
@@ -63,6 +70,12 @@ export default class Home extends Component {
       this.setState({ furnitureStyles: toggledData });
    }
 
+   handleClickPeriod = periodKey => {
+      const { periodsFilter } = this.state;
+      const toggledData = periodsFilter.map(e => ({...e, selected: periodKey === e.key ? !e.selected : e.selected }))
+      this.setState({ periodsFilter: toggledData });
+   }
+
    filterName = (arr, searchKey) => arr.filter(e => get(['name'], e, '').toLowerCase().includes(searchKey.toLowerCase()))
 
    filterStyles = arr => {
@@ -75,12 +88,25 @@ export default class Home extends Component {
 
       return arr.filter(e => e.furniture_style.some(c => selectedFurnitureStyles.indexOf(c) > -1))
    }
+
+   filterDelivery = arr => {
+      const { periodsFilter } = this.state;
+      const selectedFurnitureStyles = periodsFilter.filter(e => e.selected).map(e => e.key);
+      const totalDays = selectedFurnitureStyles.length > 0 ? selectedFurnitureStyles.reduce((a, b) => a + b) : 45;
+      // prevent redundant operation if no multiselect choosen
+      // 45 means 1 week + 2 week + 1 month which is unlimited
+      if (selectedFurnitureStyles.length === 0 || totalDays > 44)
+         return arr;
+
+      return arr.filter(e => e.delivery_time <= totalDays);
+   }
    
    render() {
-      const { searchValue, periodSelected, furnitureStyles, products } = this.state;
+      const { searchValue, furnitureStyles, products, periodsFilter } = this.state;
       const procuctsFilteredBySearch = this.filterName(products, searchValue);
       const procuctsFilteredByStyles = this.filterStyles(procuctsFilteredBySearch);
-      const theProducts = procuctsFilteredByStyles.map((e, i) => 
+      const procuctsFilteredByDelivery = this.filterDelivery(procuctsFilteredByStyles);
+      const theProducts = procuctsFilteredByDelivery.map((e, i) => 
          <ProductCard 
             productName={e.name}
             productPrice={e.price}
@@ -101,7 +127,7 @@ export default class Home extends Component {
                      <MultiSelect placeholder={'Furniture Style'} data={furnitureStyles} handleClick={this.handleClickMultiSelect} />
                   </div>
                   <div className="col-6 flex align-center padding-l-6">
-                     <Dropdown dataKey="periodSelected" option={deliverySelections} onChange={this.handleChange} placeholder="Search..." value={periodSelected} />
+                  <MultiSelect placeholder={'Delivery Time'} data={periodsFilter} handleClick={this.handleClickPeriod} />
                   </div>
                </div>
             </div>
