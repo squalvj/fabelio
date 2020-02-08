@@ -1,0 +1,14 @@
+@import '~styles/css/color';
+
+.wrapper-generic-multiSelect {
+  width: 100%;
+  padding: 1em 0.4em;
+  select {
+    width: 100%;
+    border: none;
+    font-size: 1.3em;
+    background-color: $color-white;
+    color: $color-black;
+    height: 2.5em;
+  }
+}
