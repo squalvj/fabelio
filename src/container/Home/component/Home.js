@@ -65,10 +65,22 @@ export default class Home extends Component {
 
    filterName = (arr, searchKey) => arr.filter(e => get(['name'], e, '').toLowerCase().includes(searchKey.toLowerCase()))
 
+   filterStyles = arr => {
+      const { furnitureStyles } = this.state;
+      const selectedFurnitureStyles = furnitureStyles.filter(e => e.selected).map(e => e.key);
+
+      // prevent redundant operation if no multiselect choosen
+      if (selectedFurnitureStyles.length === 0)
+         return arr;
+
+      return arr.filter(e => e.furniture_style.some(c => selectedFurnitureStyles.indexOf(c) > -1))
+   }
+   
    render() {
       const { searchValue, periodSelected, furnitureStyles, products } = this.state;
       const procuctsFilteredBySearch = this.filterName(products, searchValue);
-      const theProducts = procuctsFilteredBySearch.map((e, i) => 
+      const procuctsFilteredByStyles = this.filterStyles(procuctsFilteredBySearch);
+      const theProducts = procuctsFilteredByStyles.map((e, i) => 
          <ProductCard 
             productName={e.name}
             productPrice={e.price}
