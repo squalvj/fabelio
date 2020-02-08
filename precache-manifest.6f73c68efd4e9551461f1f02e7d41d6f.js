@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7b21a2f5aefc83e3ddd5530f65454d3c",
+    "revision": "45896cda0f36e396f612521a5436023e",
     "url": "/fabelio/index.html"
   },
   {
