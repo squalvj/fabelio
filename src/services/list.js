@@ -1,9 +1,5 @@
 const list = {
-   search: '/stickers/search',
-   trending: '/stickers/trending',
-   gifSearch: '/gifs/search',
-   gifTrending: '/gifs/trending',
-   gifRandom: '/gifs/random',
+   getProducts: '/5c9105cb330000112b649af8/',
 }
 
 export default list
