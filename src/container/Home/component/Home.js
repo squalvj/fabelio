@@ -4,6 +4,7 @@ import Dropdown from 'components/Dropdown';
 import ProductCard from 'components/ProductCard';
 import MultiSelect from 'components/MultiSelect';
 import { getProducts, getProductsStyles } from 'module/Products';
+import { get } from 'utils/index'
 import './Home.scss'
 
 const deliverySelections = [
@@ -62,9 +63,12 @@ export default class Home extends Component {
       this.setState({ furnitureStyles: toggledData });
    }
 
+   filterName = (arr, searchKey) => arr.filter(e => get(['name'], e, '').toLowerCase().includes(searchKey.toLowerCase()))
+
    render() {
       const { searchValue, periodSelected, furnitureStyles, products } = this.state;
-      const theProducts = products.map((e, i) => 
+      const procuctsFilteredBySearch = this.filterName(products, searchValue);
+      const theProducts = procuctsFilteredBySearch.map((e, i) => 
          <ProductCard 
             productName={e.name}
             productPrice={e.price}
