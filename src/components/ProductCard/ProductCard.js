@@ -2,6 +2,7 @@ import React from 'react'
 import { priceFormat } from 'utils/index';
 import './ProductCard.scss';
 export default function ProductCard({productName, productPrice, productDesc, productStyles, productDelivery}) {
+  const theProductDesc = productDesc.replace(/^(.{114}[^\s]*).*/, "$1...");
   return (
     <div className="wrapper-product-card padding-15">
       <div className="flex j-space-between">
@@ -14,7 +15,7 @@ export default function ProductCard({productName, productPrice, productDesc, pro
       </div>
 
       <div className="wrapper-product-description flex f-column">
-        <p>{productDesc}</p>
+        <p>{theProductDesc}</p>
         <span className="product-styles">
           {
             (productStyles || []).join(', ')
