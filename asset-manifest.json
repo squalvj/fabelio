@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/fabelio/static/css/main.6cf31926.chunk.css",
-    "main.js": "/fabelio/static/js/main.fd388570.chunk.js",
-    "main.js.map": "/fabelio/static/js/main.fd388570.chunk.js.map",
+    "main.js": "/fabelio/static/js/main.8bd568fb.chunk.js",
+    "main.js.map": "/fabelio/static/js/main.8bd568fb.chunk.js.map",
     "runtime~main.js": "/fabelio/static/js/runtime~main.0524fdfa.js",
     "runtime~main.js.map": "/fabelio/static/js/runtime~main.0524fdfa.js.map",
     "static/js/2.87c0754a.chunk.js": "/fabelio/static/js/2.87c0754a.chunk.js",
     "static/js/2.87c0754a.chunk.js.map": "/fabelio/static/js/2.87c0754a.chunk.js.map",
     "index.html": "/fabelio/index.html",
-    "precache-manifest.6099fe3139ff5617c0ee68364d8a6f5b.js": "/fabelio/precache-manifest.6099fe3139ff5617c0ee68364d8a6f5b.js",
+    "precache-manifest.068927162c3c842a37e2f76ec80b8237.js": "/fabelio/precache-manifest.068927162c3c842a37e2f76ec80b8237.js",
     "service-worker.js": "/fabelio/service-worker.js",
     "static/css/main.6cf31926.chunk.css.map": "/fabelio/static/css/main.6cf31926.chunk.css.map",
     "static/media/nyan.gif": "/fabelio/static/media/nyan.b1337439.gif"
