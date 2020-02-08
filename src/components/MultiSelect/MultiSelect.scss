@@ -2,13 +2,31 @@
 
 .wrapper-generic-multiSelect {
   width: 100%;
-  padding: 1em 0.4em;
-  select {
-    width: 100%;
-    border: none;
-    font-size: 1.3em;
-    background-color: $color-white;
-    color: $color-black;
-    height: 2.5em;
-  }
+  padding: 0.4em;
+  background-color: $color-white;
+  position: relative;
+ .wrapper-multiSelect-placeholder {
+   color: rgba($color-black, .5);
+   input {
+     border: none;
+     padding: 1em;
+     margin: 0;
+     width: 100%;
+   }
+ }
+ .wrapper-content-multiselect {
+   max-height: 300px;
+   width: 100%;
+   box-shadow: 0.1em 0.1em 0.1em 0.1em rgba($color-black, .2);
+   position: absolute;
+   background-color: $color-white;
+   left: 0;
+   top: 100%;
+   label {
+     padding: 1em;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+ }
 }

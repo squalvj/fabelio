@@ -57,11 +57,11 @@ export default class Home extends Component {
                <div className="margin-b-15 col-6">
                   <TextField dataKey="searchValue" placeholder="Search Furniture" onChange={this.handleChange} value={searchValue} />
                </div>
-               <div className="flex">
-                  <div className="col-6">
-                     <MultiSelect data={multiSelectData} handleClick={this.handleClickMultiSelect} />
+               <div className="flex align-center">
+                  <div className="col-6 flex align-center">
+                     <MultiSelect placeholder={'Furniture Style'} data={multiSelectData} handleClick={this.handleClickMultiSelect} />
                   </div>
-                  <div className="col-6 padding-l-15">
+                  <div className="col-6 flex align-center padding-l-15">
                      <Dropdown dataKey="periodSelected" option={deliverySelections} onChange={this.handleChange} placeholder="Search..." value={periodSelected} />
                   </div>
                </div>
